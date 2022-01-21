@@ -12,8 +12,8 @@ export function writeVariables(theme: Themes) {
   switch (theme) {
     case Themes.Dark:
       return css`
-        --bg-gradient-from: #01001a;
-        --bg-gradient-to: #290101;
+        --bg-gradient-from: #2ebf91;
+        --bg-gradient-to: #8360c3;
         --hover-bg: rgba(255, 255, 255, 0.1);
         --text: #eee;
         --soft-text: rgba(255, 255, 255, 0.3);
@@ -42,7 +42,8 @@ export function createMuiTheme() {
 
   return create({
     palette: {
-      type: "dark",
+      type: "light",
+      primary: { main: "#6cf" },
     },
     overrides: {
       MuiTooltip: {

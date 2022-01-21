@@ -3,8 +3,7 @@ import ReactDOM from "react-dom";
 import { css, Global } from "@emotion/react/macro";
 import App from "./App";
 import { writeVariables, Themes } from "./theme";
-import { Provider } from "react-redux";
-import { store } from "./store";
+import { BrowserRouter } from "react-router-dom";
 
 const globalStyles = css`
   :root {
@@ -53,9 +52,9 @@ const globalStyles = css`
 ReactDOM.render(
   <React.StrictMode>
     <Global styles={globalStyles} />
-    <Provider store={store}>
+    <BrowserRouter>
       <App />
-    </Provider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );

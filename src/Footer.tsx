@@ -15,11 +15,9 @@ const FancyFooter = styled.footer`
 export default function Footer() {
   return (
     <FancyFooter>
-      👷‍♂️ by{" "}
-      <a href="https://harding.dev" target="_blank" rel="noreferrer noopener">
-        Alex
-      </a>{" "}
-      for you
+      BLACK LIVES MATTER
+      <br />
+      This website is not associated with any government entity.
     </FancyFooter>
   );
 }

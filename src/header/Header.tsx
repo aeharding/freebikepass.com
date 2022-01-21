@@ -1,6 +1,11 @@
 import styled from "@emotion/styled/macro";
 import Logo from "./Logo";
 import { maxBodyWidth } from "../App";
+import { Link } from "react-router-dom";
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
 
 const HeaderContents = styled.header`
   margin-top: 2.5em;
@@ -29,20 +34,15 @@ const HeaderContents = styled.header`
   }
 `;
 
-const Dash = styled.span`
-  @media (max-width: 700px) {
-    display: none;
-  }
-`;
-
 /**
- * @returns Header, with text
+ * @returns Header
  */
 export default function Header() {
   return (
-    <HeaderContents>
-      <Logo />
-      <Dash>&mdash; </Dash>The Unofficial Character Database
-    </HeaderContents>
+    <StyledLink to="/">
+      <HeaderContents>
+        <Logo />
+      </HeaderContents>
+    </StyledLink>
   );
 }
