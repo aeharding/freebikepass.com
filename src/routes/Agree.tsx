@@ -92,7 +92,7 @@ export default function Agree() {
       <br />
       <br />
 
-      <Button disabled={!checked} onClick={submit}>
+      <Button disabled={!checked} onClick={submit} fullWidth>
         Continue
       </Button>
     </>

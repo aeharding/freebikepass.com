@@ -1,5 +1,5 @@
 import styled from "@emotion/styled/macro";
-import { TextField as MuiTextField } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import Button from "../../shared/Button";
@@ -20,26 +20,15 @@ const Split = styled.div`
   }
 `;
 
-const TextField = styled(MuiTextField)`
-  && {
-  }
-`;
-
 const Title = styled.h3``;
 
 const P = styled.p`
   max-width: 650px;
 `;
 
-const phoneRegExp =
-  /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
-
 const validationSchema = yup.object({
   name: yup.string().required("Your name is required"),
-  phone: yup
-    .string()
-    .matches(phoneRegExp, "Phone number is not valid")
-    .required("Phone number is required"),
+  phone: yup.string().required("Phone number is required"),
   street: yup.string().required("Street address is required"),
   city: yup.string().required("City is required"),
   state: yup.string().required("State is required"),

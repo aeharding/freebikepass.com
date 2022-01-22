@@ -1,8 +1,8 @@
 import styled from "@emotion/styled/macro";
 import Logo from "./Logo";
-import { maxBodyWidth } from "../App";
 import Nav from "./Nav";
 import { Link } from "react-router-dom";
+import Section, { maxBodyWidth } from "../shared/Section";
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -13,9 +13,7 @@ const StyledLink = styled(Link)`
 
 const HeaderContents = styled.header`
   margin-top: 2.5em;
-  margin-right: var(--right-safe-area);
   margin-bottom: 1.5em;
-  margin-left: var(--left-safe-area);
 
   display: flex;
   align-items: center;
@@ -42,12 +40,14 @@ const HeaderContents = styled.header`
  */
 export default function Header() {
   return (
-    <HeaderContents>
-      <StyledLink to="/">
-        <Logo />
-      </StyledLink>
+    <Section>
+      <HeaderContents>
+        <StyledLink to="/">
+          <Logo />
+        </StyledLink>
 
-      <Nav />
-    </HeaderContents>
+        <Nav />
+      </HeaderContents>
+    </Section>
   );
 }

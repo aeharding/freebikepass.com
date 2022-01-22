@@ -2,15 +2,18 @@ import styled from "@emotion/styled/macro";
 import AnimateHeight from "react-animate-height";
 
 const StyledQ = styled.div`
+  margin: 0 -1rem;
   padding: 1em 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   cursor: pointer;
 `;
 
-const Question = styled.div``;
+const Question = styled.div`
+  margin: 0 1rem;
+`;
 
 const Answer = styled.div`
-  margin: 1em 0 0;
+  margin: 1em 1rem 0;
   font-size: 0.9em;
   cursor: initial;
 `;
