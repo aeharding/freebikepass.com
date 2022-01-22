@@ -6,7 +6,10 @@ import Header from "./header/Header";
 import Home from "./routes/Home";
 import Agree from "./routes/Agree";
 import Order from "./routes/Order";
-import Download from "./routes/Download";
+import Mail from "./routes/Mail";
+import Done from "./routes/Done";
+import Faq from "./routes/Faq";
+import Privacy from "./routes/Privacy";
 import { createMuiTheme } from "./theme";
 
 export const maxBodyWidth = "975px";
@@ -47,12 +50,16 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/agree" element={<Agree />} />
               <Route path="/order" element={<Order />} />
-              <Route path="/download" element={<Download />} />
+              <Route path="/mail" element={<Mail />} />
+              <Route path="/done" element={<Done />} />
+              <Route path="/faq" element={<Faq />} />
+              <Route path="/privacy" element={<Privacy />} />
             </Routes>
           </Main>
-          <Footer />
         </AppContents>
       </AppContainer>
+
+      <Footer />
     </ThemeProvider>
   );
 }

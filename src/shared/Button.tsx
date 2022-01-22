@@ -1,10 +1,19 @@
+import { css } from "@emotion/react/macro";
 import styled from "@emotion/styled/macro";
 
-interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {}
+interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
+  fullWidth?: boolean;
+}
 
-const StyledButton = styled.button`
+const StyledButton = styled.button<ButtonProps>`
   padding: 0.8em 1em;
   font-size: 1em;
+
+  ${({ fullWidth }) =>
+    fullWidth &&
+    css`
+      width: 100%;
+    `}
 
   background: #6cf;
   color: white;

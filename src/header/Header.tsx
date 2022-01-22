@@ -1,10 +1,14 @@
 import styled from "@emotion/styled/macro";
 import Logo from "./Logo";
 import { maxBodyWidth } from "../App";
+import Nav from "./Nav";
 import { Link } from "react-router-dom";
 
 const StyledLink = styled(Link)`
   text-decoration: none;
+
+  display: flex;
+  align-items: center;
 `;
 
 const HeaderContents = styled.header`
@@ -15,8 +19,7 @@ const HeaderContents = styled.header`
 
   display: flex;
   align-items: center;
-
-  cursor: pointer;
+  justify-content: space-between;
 
   @media (min-width: calc(${() => maxBodyWidth} + 1rem)) {
     margin-left: 0;
@@ -39,10 +42,12 @@ const HeaderContents = styled.header`
  */
 export default function Header() {
   return (
-    <StyledLink to="/">
-      <HeaderContents>
+    <HeaderContents>
+      <StyledLink to="/">
         <Logo />
-      </HeaderContents>
-    </StyledLink>
+      </StyledLink>
+
+      <Nav />
+    </HeaderContents>
   );
 }
