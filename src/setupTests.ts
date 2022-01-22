@@ -11,3 +11,5 @@ class ResizeObserver {
 }
 (window as any).ResizeObserver = ResizeObserver;
 export default ResizeObserver;
+
+global.scrollTo = jest.fn();
