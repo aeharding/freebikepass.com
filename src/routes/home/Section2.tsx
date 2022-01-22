@@ -3,18 +3,28 @@ import { Link } from "react-router-dom";
 import Button from "../../shared/Button";
 import Section from "../../shared/Section";
 
+const StyledSection2 = styled.div`
+  display: flex;
+  height: 500px;
+
+  background: url(/night.jpg);
+  background-size: cover;
+  background-position: 50% 30%;
+`;
+
 const StyledContainer = styled(Section)`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-`;
 
-const StyledSection2 = styled.div`
-  background: url(/night.jpg);
-  background-size: cover;
-  background-position: 50% 30%;
+  margin-right: 2em;
 
-  height: 500px;
+  @media (max-width: 600px) {
+    align-items: center;
+    justify-content: center;
+    margin-right: 0;
+    background: rgba(0, 0, 0, 0.7);
+  }
 `;
 
 const Title = styled.h2`
@@ -27,14 +37,22 @@ const Title = styled.h2`
   @media (min-width: 1000px) {
     font-size: 3em;
   }
+
+  @media (max-width: 600px) {
+    font-size: 2em;
+  }
 `;
 
 const Description = styled.div`
   width: 300px;
   font-size: 0.85em;
   background: rgba(0, 0, 0, 0.8);
-  border-radius: 1em;
+  border-radius: 2em;
   margin: 1rem 0;
+
+  @media (max-width: 600px) {
+    background: none;
+  }
 
   li:not(:last-child) {
     padding-bottom: 1em;

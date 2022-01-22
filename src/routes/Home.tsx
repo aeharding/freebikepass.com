@@ -63,6 +63,9 @@ const Img = styled.img`
     margin: 0 0 0 2em;
     border-radius: 1em;
   }
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;
 
 export default function Home() {
