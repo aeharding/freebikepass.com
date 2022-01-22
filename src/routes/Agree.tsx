@@ -36,8 +36,8 @@ export default function Agree() {
       </p>
 
       <p>
-        ⚠️ Important! If you primarily ride your bike to parks for your health
-        and wellness, you may still qualify for a free pass.{" "}
+        ⚠️ Note! If you primarily ride your bike to parks for your health and
+        wellness, you may still qualify for a free pass.{" "}
         <Link to="/faq">Please check the FAQ.</Link>
       </p>
 

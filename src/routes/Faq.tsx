@@ -11,7 +11,7 @@ const data = [
     a: 'Only you know what is a "necessary activity" in your life. (See next question for more.)',
   },
   {
-    q: "My family and I ride bikes primarily for recreation, however we don't have the money for four annual passes. What options do we have?",
+    q: 'My family and I ride bikes primarily for "recreation," however we don\'t have the money for four annual passes. What options do we have?',
     a: (
       <>
         <a

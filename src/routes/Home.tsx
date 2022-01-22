@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Button from "../shared/Button";
 import Section from "../shared/Section";
 import Section2 from "./home/Section2";
+import Section3 from "./home/Section3";
 
 const Section1 = styled.div`
   display: flex;
@@ -35,8 +36,6 @@ const Hr = styled.div`
 
 const Description = styled.div`
   margin: 2em 0;
-
-  max-width: 650px;
 `;
 
 const LearnMoreLink = styled(Link)`
@@ -111,6 +110,8 @@ export default function Home() {
       </Section>
 
       <Section2 />
+
+      <Section3 />
     </>
   );
 }

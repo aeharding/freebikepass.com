@@ -24,10 +24,11 @@ const HeaderContents = styled.header`
     margin-right: 0;
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 500px) {
     flex-direction: column;
     margin-top: 1.5em;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    grid-gap: 1rem;
 
     svg {
       margin-bottom: 0.5rem;

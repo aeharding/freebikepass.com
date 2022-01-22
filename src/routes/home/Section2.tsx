@@ -5,6 +5,7 @@ import Section from "../../shared/Section";
 
 const StyledSection2 = styled.div`
   display: flex;
+  justify-content: center;
   height: 500px;
 
   background: url(/night.jpg);
@@ -13,16 +14,17 @@ const StyledSection2 = styled.div`
 `;
 
 const StyledContainer = styled(Section)`
+  flex: 1;
+
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-
-  margin-right: 2em;
+  margin: 0 2em 0 0;
 
   @media (max-width: 600px) {
     align-items: center;
     justify-content: center;
-    margin-right: 0;
+    margin: 0;
     background: rgba(0, 0, 0, 0.7);
   }
 `;
