@@ -6,7 +6,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload, faFilePdf } from "@fortawesome/free-solid-svg-icons";
 import styled from "@emotion/styled/macro";
 import Button from "../../shared/Button";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+const DownloadLinkContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const DownloadLink = styled.a`
   display: inline-flex;
@@ -18,7 +24,7 @@ const DownloadLink = styled.a`
   padding: 1em;
   border-radius: 50%;
   aspect-ratio: 1;
-  border: 1px solid white;
+  background: #0073bb;
 
   svg {
     margin: 0.25em;
@@ -56,6 +62,7 @@ interface DownloadProps {
 }
 
 export default function Download({ data }: DownloadProps) {
+  const navigate = useNavigate();
   const [pdfResultUrl, setPdfResultUrl] = useState<string | undefined>();
   const [downloaded, setDownloaded] = useState(false);
 
@@ -122,6 +129,12 @@ export default function Download({ data }: DownloadProps) {
     setPdfResultUrl(URL.createObjectURL(blob));
   }
 
+  function go() {
+    if (!downloaded) return;
+
+    navigate("/mail");
+  }
+
   if (!pdfResultUrl) return <>Loading...</>;
 
   return (
@@ -133,27 +146,27 @@ export default function Download({ data }: DownloadProps) {
         be attaching it to an email to send.
       </p>
 
-      <DownloadLink
-        href={pdfResultUrl}
-        download={`BikeTrailApp-${new Date().getFullYear()}-${data.name
-          .slice(0, 10)
-          .replaceAll(" ", "_")}.pdf`}
-        onClick={() => setDownloaded(true)}
-      >
-        <div>
-          <FontAwesomeIcon icon={faFilePdf} />
-          <FontAwesomeIcon icon={faDownload} />
-        </div>
-        <div>Download!</div>
-      </DownloadLink>
+      <DownloadLinkContainer>
+        <DownloadLink
+          href={pdfResultUrl}
+          download={`BikeTrailApp-${new Date().getFullYear()}-${data.name
+            .slice(0, 10)
+            .replaceAll(" ", "_")}.pdf`}
+          onClick={() => setDownloaded(true)}
+        >
+          <div>
+            <FontAwesomeIcon icon={faFilePdf} />
+            <FontAwesomeIcon icon={faDownload} />
+          </div>
+          <div>Download!</div>
+        </DownloadLink>
+      </DownloadLinkContainer>
 
       <br />
 
-      <Link to="/mail">
-        <Button fullWidth disabled={!downloaded}>
-          Continue
-        </Button>
-      </Link>
+      <Button fullWidth disabled={!downloaded} onClick={go}>
+        Continue
+      </Button>
     </>
   );
 }

@@ -10,7 +10,7 @@ const StyledButton = styled.button<ButtonProps>`
   padding: 0.8em 1em;
   font-size: 1em;
 
-  background: #6cf;
+  background: #0073bb;
   color: white;
 
   border: 0;
@@ -19,7 +19,7 @@ const StyledButton = styled.button<ButtonProps>`
   cursor: pointer;
 
   &:hover {
-    background: #5ec0f1;
+    background: #0086da;
   }
 
   &:disabled {

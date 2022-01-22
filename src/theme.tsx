@@ -12,8 +12,8 @@ export function writeVariables(theme: Themes) {
   switch (theme) {
     case Themes.Dark:
       return css`
-        --bg-gradient-from: #2ebf91;
-        --bg-gradient-to: #8360c3;
+        --bg-gradient-from: #237a57;
+        --bg-gradient-to: #093028;
         --hover-bg: rgba(255, 255, 255, 0.1);
         --text: #eee;
         --soft-text: rgba(255, 255, 255, 0.3);
@@ -42,8 +42,9 @@ export function createMuiTheme() {
 
   return create({
     palette: {
-      type: "light",
-      primary: { main: "#6cf" },
+      type: "dark",
+      primary: { main: "#fff" },
+      error: { main: "#ff0000" },
     },
     overrides: {
       MuiTooltip: {
@@ -51,6 +52,13 @@ export function createMuiTheme() {
           fontSize: "0.9rem",
           padding: "0.5em 0.75em",
           backgroundColor: "black",
+        },
+      },
+      MuiTextField: {
+        root: {
+          "& .MuiFilledInput-root": {
+            background: "rgba(0, 0, 0, 0.15)",
+          },
         },
       },
     },

@@ -5,6 +5,11 @@ import Button from "../shared/Button";
 import Section from "../shared/Section";
 import Section2 from "./home/Section2";
 import Section3 from "./home/Section3";
+import Section4 from "./home/Section4";
+
+const StyledHome = styled.div`
+  margin-bottom: -2rem;
+`;
 
 const Section1 = styled.div`
   display: flex;
@@ -77,7 +82,7 @@ export default function Home() {
   }
 
   return (
-    <>
+    <StyledHome>
       <Section>
         <Section1>
           <div>
@@ -111,7 +116,9 @@ export default function Home() {
 
       <Section2 />
 
+      <Section4 />
+
       <Section3 />
-    </>
+    </StyledHome>
   );
 }

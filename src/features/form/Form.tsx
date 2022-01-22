@@ -53,7 +53,7 @@ export default function Form({ onSubmit }: FormProps) {
       phone: "",
       street: "",
       city: "",
-      state: "Wisconsin",
+      state: "",
       zip: "",
       email: "",
     },
@@ -83,6 +83,7 @@ export default function Form({ onSubmit }: FormProps) {
           <Split>
             <TextField
               fullWidth
+              InputProps={{ disableUnderline: !formik.errors.name }}
               variant="filled"
               label="Name"
               autoComplete="name"
@@ -95,6 +96,7 @@ export default function Form({ onSubmit }: FormProps) {
             />
             <TextField
               fullWidth
+              InputProps={{ disableUnderline: !formik.errors.phone }}
               variant="filled"
               label="Phone"
               autoComplete="tel"
@@ -108,6 +110,7 @@ export default function Form({ onSubmit }: FormProps) {
           </Split>
           <TextField
             fullWidth
+            InputProps={{ disableUnderline: !formik.errors.street }}
             variant="filled"
             label="Street Address"
             autoComplete="street-address"
@@ -120,6 +123,7 @@ export default function Form({ onSubmit }: FormProps) {
           <Split>
             <TextField
               fullWidth
+              InputProps={{ disableUnderline: !formik.errors.city }}
               variant="filled"
               label="City"
               autoComplete="address-level2"
@@ -131,6 +135,7 @@ export default function Form({ onSubmit }: FormProps) {
             />
             <TextField
               fullWidth
+              InputProps={{ disableUnderline: !formik.errors.state }}
               variant="filled"
               label="State"
               autoComplete="address-level1"
@@ -142,6 +147,7 @@ export default function Form({ onSubmit }: FormProps) {
             />
             <TextField
               fullWidth
+              InputProps={{ disableUnderline: !formik.errors.zip }}
               variant="filled"
               label="ZIP Code"
               autoComplete="postal-code"
@@ -154,6 +160,7 @@ export default function Form({ onSubmit }: FormProps) {
           </Split>
           <TextField
             fullWidth
+            InputProps={{ disableUnderline: !formik.errors.email }}
             variant="filled"
             label="Email"
             autoComplete="email"

@@ -1,32 +1,43 @@
 import styled from "@emotion/styled/macro";
+import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Section from "./shared/Section";
 
-const FancyFooter = styled.footer`
-  margin: 0.5em;
-  text-align: center;
-  color: var(--soft-text);
+const StyledFooter = styled.div`
+  margin-top: 2rem;
+  padding: 5em 1rem;
 
-  transition: color 100ms ease-out;
+  text-align: right;
+  font-size: 0.9em;
+  background: black;
+  color: #ccc;
 
-  &:hover {
-    color: inherit;
+  @media (max-width: 600px) {
+    text-align: center;
   }
 `;
 
-const BLM = styled.div`
-  padding: 0.5em;
+const Disclaimer = styled.div`
+  margin-bottom: 1rem;
+  color: #999;
+`;
 
-  background: black;
-  text-align: center;
+const BLM = styled.div`
+  font-weight: bold;
 `;
 
 export default function Footer() {
   return (
     <>
-      <FancyFooter>
-        <br />
-        This website is not associated with any government entity.
-      </FancyFooter>
-      <BLM>✊🏿✊🏾✊🏽 #BlackLivesMatter </BLM>
+      <StyledFooter>
+        <Section>
+          <Disclaimer>
+            <FontAwesomeIcon icon={faInfoCircle} /> This site is not affiliated
+            with any government entity.
+          </Disclaimer>
+          <BLM>✊🏿✊🏾✊🏽 #BlackLivesMatter</BLM>
+        </Section>
+      </StyledFooter>
     </>
   );
 }

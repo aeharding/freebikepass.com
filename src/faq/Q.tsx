@@ -4,8 +4,11 @@ import AnimateHeight from "react-animate-height";
 const StyledQ = styled.div`
   margin: 0 -1rem;
   padding: 1em 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   cursor: pointer;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
 `;
 
 const Question = styled.div`
