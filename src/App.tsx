@@ -1,6 +1,6 @@
 import styled from "@emotion/styled/macro";
 import { ThemeProvider } from "@material-ui/styles";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./header/Header";
 import Home from "./routes/Home";
@@ -40,27 +40,29 @@ function App() {
   const theme = createMuiTheme();
 
   return (
-    <ThemeProvider theme={theme}>
-      <AppContainer>
-        <AppContents>
-          <Header />
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <AppContainer>
+          <AppContents>
+            <Header />
 
-          <Main>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/agree" element={<Agree />} />
-              <Route path="/order" element={<Order />} />
-              <Route path="/mail" element={<Mail />} />
-              <Route path="/done" element={<Done />} />
-              <Route path="/faq" element={<Faq />} />
-              <Route path="/privacy" element={<Privacy />} />
-            </Routes>
-          </Main>
-        </AppContents>
-      </AppContainer>
+            <Main>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/agree" element={<Agree />} />
+                <Route path="/order" element={<Order />} />
+                <Route path="/mail" element={<Mail />} />
+                <Route path="/done" element={<Done />} />
+                <Route path="/faq" element={<Faq />} />
+                <Route path="/privacy" element={<Privacy />} />
+              </Routes>
+            </Main>
+          </AppContents>
+        </AppContainer>
 
-      <Footer />
-    </ThemeProvider>
+        <Footer />
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
 

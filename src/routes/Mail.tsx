@@ -14,9 +14,6 @@ const Danger = styled.div`
 `;
 
 export default function Mail() {
-  const link =
-    " mailto:dane-parks@countyofdane.com?subject=Dane%20County%20Commuter%20Pass%20Application&body=Hello%2C%0D%0A%0D%0APlease%20find%20my%20form%20for%20a%20Dane%20County%20bike%20commuter%20pass%20attached.%0D%0A%0D%0AThanks! ";
-
   return (
     <>
       <h3>Step 4: Send your form</h3>
