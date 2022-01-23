@@ -150,8 +150,8 @@ export default function Download({ data }: DownloadProps) {
         <DownloadLink
           href={pdfResultUrl}
           download={`BikeTrailApp-${new Date().getFullYear()}-${data.name
-            .slice(0, 10)
-            .replaceAll(" ", "_")}.pdf`}
+            .slice(0, 25)
+            .replaceAll(" ", "")}.pdf`}
           onClick={() => setDownloaded(true)}
         >
           <div>
