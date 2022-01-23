@@ -1,9 +1,11 @@
 import styled from "@emotion/styled/macro";
 import { TextField } from "@material-ui/core";
 import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
+import { useAppDispatch } from "../../hooks";
 import Button from "../../shared/Button";
-import { FormPayload } from "./Download";
+import { dataReceived } from "./formSlice";
 
 const Lines = styled.div`
   display: flex;
@@ -42,11 +44,9 @@ const validationSchema = yup.object({
     .required("Email is required"),
 });
 
-interface FormProps {
-  onSubmit: (data: FormPayload) => void;
-}
-
-export default function Form({ onSubmit }: FormProps) {
+export default function Form() {
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -59,10 +59,13 @@ export default function Form({ onSubmit }: FormProps) {
     },
     validationSchema,
     onSubmit: ({ city, state, zip, ...rest }) => {
-      onSubmit({
-        ...rest,
-        cityStateZip: `${city}, ${state} ${zip}`,
-      });
+      dispatch(
+        dataReceived({
+          ...rest,
+          cityStateZip: `${city}, ${state} ${zip}`,
+        })
+      );
+      navigate("../download");
     },
   });
 

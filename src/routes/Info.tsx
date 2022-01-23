@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Form from "../features/form/Form";
+import { agreed } from "../features/form/formSlice";
+import { useAppSelector } from "../hooks";
 
 // test data:
 // {
@@ -12,19 +14,13 @@ import Form from "../features/form/Form";
 // }
 
 export default function Info() {
+  const hasAgreed = useAppSelector(agreed);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!sessionStorage["agreed"]) navigate("/order", { replace: true });
+    if (!hasAgreed) navigate("/order", { replace: true });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return (
-    <Form
-      onSubmit={(data) => {
-        sessionStorage["form"] = JSON.stringify(data);
-        navigate("../download");
-      }}
-    />
-  );
+  return <Form />;
 }

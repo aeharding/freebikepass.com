@@ -7,6 +7,8 @@ import { faDownload, faFilePdf } from "@fortawesome/free-solid-svg-icons";
 import styled from "@emotion/styled/macro";
 import Button from "../../shared/Button";
 import { useNavigate } from "react-router-dom";
+import { useAppSelector } from "../../hooks";
+import { form } from "./formSlice";
 
 const DownloadLinkContainer = styled.div`
   display: flex;
@@ -57,12 +59,9 @@ export interface FormPayload {
   email: string;
 }
 
-interface DownloadProps {
-  data: FormPayload;
-}
-
-export default function Download({ data }: DownloadProps) {
+export default function Download() {
   const navigate = useNavigate();
+  const formData = useAppSelector(form);
   const [pdfResultUrl, setPdfResultUrl] = useState<string | undefined>();
   const [downloaded, setDownloaded] = useState(false);
 
@@ -72,6 +71,8 @@ export default function Download({ data }: DownloadProps) {
   }, []);
 
   async function load() {
+    if (!formData) throw new Error("formData not defined");
+
     // This should be a Uint8Array or ArrayBuffer
     // This data can be obtained in a number of different ways
     // If your running in a Node environment, you could use fs.readFile()
@@ -100,7 +101,7 @@ export default function Download({ data }: DownloadProps) {
     Object.entries(labelMap).forEach(([key, fieldName]) => {
       const field = form.getTextField(fieldName);
 
-      field.setText(data[key as keyof FormPayload]);
+      field.setText(formData[key as keyof FormPayload]);
     });
 
     form.flatten();
@@ -113,7 +114,7 @@ export default function Download({ data }: DownloadProps) {
     const { width, height } = firstPage.getSize();
 
     // Draw a string of text diagonally across the first page
-    firstPage.drawText(data.name, {
+    firstPage.drawText(formData.name, {
       x: width / 2 + 25,
       y: height / 2 - 97,
       size: 15,
@@ -137,6 +138,8 @@ export default function Download({ data }: DownloadProps) {
 
   if (!pdfResultUrl) return <>Loading...</>;
 
+  if (!formData) throw new Error("formData not defined");
+
   return (
     <>
       <h3>Step 3: Download</h3>
@@ -149,7 +152,7 @@ export default function Download({ data }: DownloadProps) {
       <DownloadLinkContainer>
         <DownloadLink
           href={pdfResultUrl}
-          download={`BikeTrailApp-${new Date().getFullYear()}-${data.name
+          download={`BikeTrailApp-${new Date().getFullYear()}-${formData.name
             .slice(0, 25)
             .replaceAll(" ", "")}.pdf`}
           onClick={() => setDownloaded(true)}

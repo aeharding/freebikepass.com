@@ -7,6 +7,8 @@ import Section2 from "./home/Section2";
 import Section3 from "./home/Section3";
 import Section4 from "./home/Section4";
 import Citations from "./home/Citations";
+import { useAppDispatch } from "../hooks";
+import { clear } from "../features/form/formSlice";
 
 const StyledHome = styled.div`
   margin-bottom: -2rem;
@@ -74,13 +76,11 @@ const Img = styled.img`
 `;
 
 export default function Home() {
-  useEffect(() => {
-    clearStorage();
-  }, []);
+  const dispatch = useAppDispatch();
 
-  function clearStorage() {
-    sessionStorage.clear();
-  }
+  useEffect(() => {
+    dispatch(clear());
+  }, [dispatch]);
 
   return (
     <StyledHome>

@@ -1,23 +1,12 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Download, { FormPayload } from "../features/form/Download";
+import { Navigate } from "react-router-dom";
+import Download from "../features/form/Download";
+import { form } from "../features/form/formSlice";
+import { useAppSelector } from "../hooks";
 
 export default function DownloadRoute() {
-  const navigate = useNavigate();
-  const [data, setData] = useState<FormPayload | undefined>();
+  const formData = useAppSelector(form);
 
-  useEffect(() => {
-    if (!sessionStorage["form"]) {
-      navigate("/order/info", { replace: true });
-      return;
-    }
+  if (!formData) return <Navigate to="/order/info" replace />;
 
-    setData(JSON.parse(sessionStorage["form"]));
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  if (!data) return <></>;
-
-  return <Download data={data} />;
+  return <Download />;
 }

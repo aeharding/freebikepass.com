@@ -1,9 +1,9 @@
 import styled from "@emotion/styled/macro";
 import Button from "../shared/Button";
 import MailExample from "../features/mail/Mail";
-import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { FormPayload } from "../features/form/Download";
+import { Link, Navigate } from "react-router-dom";
+import { useAppSelector } from "../hooks";
+import { form } from "../features/form/formSlice";
 
 const Danger = styled.div`
   margin: 1em auto;
@@ -16,19 +16,9 @@ const Danger = styled.div`
 `;
 
 export default function Mail() {
-  const navigate = useNavigate();
-  const [data, setData] = useState<FormPayload | undefined>();
+  const formData = useAppSelector(form);
 
-  useEffect(() => {
-    if (!sessionStorage["form"]) {
-      navigate("/order/info", { replace: true });
-      return;
-    }
-
-    setData(JSON.parse(sessionStorage["form"]));
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  if (!formData) return <Navigate to="/order/info" replace />;
 
   return (
     <>
@@ -47,7 +37,7 @@ export default function Mail() {
       <MailExample
         to="dane-parks@countyofdane.com"
         subject="Subsidized Bike Pass Application"
-        body={`Hello,\n\nI have attached my form for a subsidized Wisconsin bike trail pass.\n\nThanks!\n${data?.name}`}
+        body={`Hello,\n\nI have attached my form for a subsidized Wisconsin bike trail pass.\n\nThanks!\n${formData?.name}`}
       />
 
       <br />

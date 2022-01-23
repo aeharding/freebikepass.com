@@ -2,10 +2,11 @@ import styled from "@emotion/styled/macro";
 import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Checkbox, FormControlLabel } from "@material-ui/core";
-import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { staticFields } from "../features/form/Download";
 import Button from "../shared/Button";
+import { useAppDispatch, useAppSelector } from "../hooks";
+import { agreeChange, agreed } from "../features/form/formSlice";
 
 const Note = styled.div`
   padding: 1rem;
@@ -38,11 +39,11 @@ const CheckboxLabel = styled(FormControlLabel)`
 `;
 
 export default function Agree() {
-  const [checked, setChecked] = useState(false);
+  const dispatch = useAppDispatch();
+  const hasAgreed = useAppSelector(agreed);
   const navigate = useNavigate();
 
   function submit() {
-    sessionStorage["agreed"] = true;
     navigate("../info");
   }
 
@@ -94,9 +95,9 @@ export default function Agree() {
           <Checkbox
             color="primary"
             onChange={(_, checked) => {
-              setChecked(checked);
+              dispatch(agreeChange(checked));
             }}
-            checked={checked}
+            checked={hasAgreed}
           />
         }
         label="I have read the above statements and they are true and correct and
@@ -108,7 +109,7 @@ export default function Agree() {
       <br />
       <br />
 
-      <Button disabled={!checked} onClick={submit} fullWidth>
+      <Button disabled={!hasAgreed} onClick={submit} fullWidth>
         Continue
       </Button>
     </>
