@@ -6,6 +6,7 @@ import Section from "../shared/Section";
 import Section2 from "./home/Section2";
 import Section3 from "./home/Section3";
 import Section4 from "./home/Section4";
+import Section5 from "./home/Section5";
 import Citations from "./home/Citations";
 import { useAppDispatch } from "../hooks";
 import { clear } from "../features/form/formSlice";
@@ -75,6 +76,18 @@ const Img = styled.img`
   }
 `;
 
+const FooterSection = styled.div`
+  padding: 1rem 0 0;
+
+  background: black;
+`;
+
+const FooterSectionContainer = styled(Section)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 export default function Home() {
   const dispatch = useAppDispatch();
 
@@ -102,7 +115,7 @@ export default function Home() {
               <p>
                 If you ride primarily for transportation purposes, you qualify
                 for a <strong>FREE</strong> annual state trail pass. It only
-                take a few minutes to order!
+                takes a few minutes to order!
               </p>
             </Description>
 
@@ -122,7 +135,18 @@ export default function Home() {
 
       <Section3 />
 
+      <Section5 />
+
       <Citations />
+
+      <FooterSection>
+        <FooterSectionContainer>
+          <p>Convinced?</p>
+          <Link to="/order">
+            <Button>Order Free Bike Pass</Button>
+          </Link>
+        </FooterSectionContainer>
+      </FooterSection>
     </StyledHome>
   );
 }

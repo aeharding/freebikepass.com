@@ -54,7 +54,7 @@ export default function Agree() {
       </p>
 
       <Note>
-        <FontAwesomeIcon icon={faQuestionCircle} /> Questions?{" "}
+        <FontAwesomeIcon icon={faQuestionCircle} /> <strong>Questions?</strong>{" "}
         <Link to="/faq">Check the FAQs</Link> for more information.
       </Note>
 

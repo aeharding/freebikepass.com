@@ -2,6 +2,33 @@ import Qs from "../faq/Qs";
 
 const data = [
   {
+    q: "Wait, passes are required?",
+    a: (
+      <>
+        <p>
+          To ride a bike, passes are required on many trails around Madison,
+          including (but not limited to):
+        </p>
+        <ol>
+          <li>Capital City Trail (generally when outside the Beltline)</li>
+          <li>Military Ridge State Trail</li>
+          <li>Badger State Trail</li>
+          <li>Glacial Drumlin State Trail</li>
+        </ol>
+        <p>
+          Trail passes are <strong>NOT</strong> required on the following paths:
+        </p>
+        <ol>
+          <li>Many bike paths inside the City of Madison</li>
+          <li>Southwest Path</li>
+          <li>Ice Age Junction Path</li>
+          <li>Lower Yahara River Trail</li>
+          <li>US Highway 12 Bike Path</li>
+        </ol>
+      </>
+    ),
+  },
+  {
     q: "What's the catch?",
     a: 'You only qualify for a free pass if you ride primarily to/from "work, school, shopping or other necessary activities." (See next question for more.)',
   },
