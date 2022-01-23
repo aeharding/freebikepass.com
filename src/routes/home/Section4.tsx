@@ -16,14 +16,14 @@ const Grid = styled.div`
 
   margin: 0 auto;
 
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 
   @media (max-width: 1100px) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  @media (max-width: 700px) {
-    grid-template-columns: 1fr;
+  @media (max-width: 600px) {
+    grid-template-columns: minmax(0, 1fr);
   }
 `;
 

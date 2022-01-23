@@ -17,6 +17,7 @@ const Blockquote = styled.blockquote`
   border: 1px solid #555;
   border-radius: 1rem;
   padding: 1rem;
+  min-width: 0;
 `;
 
 const TwitterIcon = styled(FontAwesomeIcon)`
@@ -32,6 +33,17 @@ const User = styled.div`
   margin-bottom: 1rem;
 
   align-items: center;
+`;
+
+const UserInfo = styled.div`
+  margin-right: 0.5rem;
+  min-width: 0;
+`;
+
+const UserText = styled.div`
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 `;
 
 const Avatar = styled.img`
@@ -76,11 +88,12 @@ export default function Tweet({ body, user, url, date }: TweetProps) {
       <Blockquote>
         <User>
           <Avatar src={user.avatar} />
-          <div>
-            {user.name}
-            <br />
-            <Handle>@{user.handle}</Handle>
-          </div>
+          <UserInfo>
+            <UserText>{user.name}</UserText>
+            <Handle>
+              <UserText>@{user.handle}</UserText>
+            </Handle>
+          </UserInfo>
           <TwitterIcon icon={faTwitter} />
         </User>
         <Body>{body}</Body>
