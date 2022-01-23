@@ -46,7 +46,7 @@ export default function Mail() {
 
       <MailExample
         to="dane-parks@countyofdane.com"
-        subject="Dane County Subsidized Pass Application"
+        subject="Subsidized Bike Pass Application"
         body={`Hello,\n\nI have attached my form for a subsidized Wisconsin bike trail pass.\n\nThanks!\n${data?.name}`}
       />
 
