@@ -140,9 +140,9 @@ export default function Section5() {
               <FontAwesomeIcon icon={faCar} /> Emergency Ride Home
             </BenefitTitle>
             <BenefitDescription>
-              Do you worry about if your bike breaks down during your ride, or
-              the weather gets bad while you're out?{" "}
-              <strong>Get a free lift!</strong> You can redeem six Union Cab
+              Do you worry about your bike breaking down during your ride, or
+              the weather catching you unprepared while you're out?{" "}
+              <strong>Catch a free ride!</strong> You can redeem six Union Cab
               vouchers per year, good for up to $75 per ride.
             </BenefitDescription>
 
