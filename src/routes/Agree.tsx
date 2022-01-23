@@ -1,15 +1,34 @@
 import styled from "@emotion/styled/macro";
+import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Checkbox, FormControlLabel } from "@material-ui/core";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { staticFields } from "../features/form/Download";
 import Button from "../shared/Button";
 
+const Note = styled.div`
+  padding: 1rem;
+  margin: 1.5rem 0 2rem;
+
+  border-radius: 1rem;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
+    0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12),
+    0 16px 16px rgba(0, 0, 0, 0.12);
+  background: #e7d000;
+  color: black;
+`;
+
 const Blockquote = styled.blockquote`
   margin: 0;
-  padding: 1px 1.3em;
+  padding: 1px var(--right-safe-area) 1px var(--left-safe-area);
   background: rgba(0, 0, 0, 0.2);
   font-family: monospace;
+
+  @media (max-width: 500px) {
+    margin: 0 calc(-1 * var(--right-safe-area)) 0
+      calc(-1 * var(--left-safe-area));
+  }
 `;
 
 const CheckboxLabel = styled(FormControlLabel)`
@@ -24,22 +43,19 @@ export default function Agree() {
 
   function submit() {
     sessionStorage["agreed"] = true;
-    navigate("/order");
+    navigate("../info");
   }
 
   return (
     <>
-      <h3>Step 1: Agreement</h3>
-
       <p>
         In order to get a bike trail pass, you must acknowledge the following.
       </p>
 
-      <p>
-        ⚠️ Note! If you primarily ride your bike to parks for your health and
-        wellness, you may still qualify for a free pass.{" "}
-        <Link to="/faq">Please check the FAQ.</Link>
-      </p>
+      <Note>
+        <FontAwesomeIcon icon={faQuestionCircle} /> Questions?{" "}
+        <Link to="/faq">Check the FAQs</Link> for more information.
+      </Note>
 
       <Blockquote>
         <p>

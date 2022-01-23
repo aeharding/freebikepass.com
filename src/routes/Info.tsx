@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Download, { FormPayload } from "../features/form/Download";
 import Form from "../features/form/Form";
 
 // test data:
@@ -12,16 +11,20 @@ import Form from "../features/form/Form";
 //   email: "test@example.com",
 // }
 
-export default function Order() {
+export default function Info() {
   const navigate = useNavigate();
-  const [data, setData] = useState<FormPayload | undefined>();
 
   useEffect(() => {
-    if (!sessionStorage["agreed"]) navigate("/agree", { replace: true });
+    if (!sessionStorage["agreed"]) navigate("/order", { replace: true });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (!data) return <Form onSubmit={(data) => setData(data)} />;
-
-  return <Download data={data} />;
+  return (
+    <Form
+      onSubmit={(data) => {
+        sessionStorage["form"] = JSON.stringify(data);
+        navigate("../download");
+      }}
+    />
+  );
 }

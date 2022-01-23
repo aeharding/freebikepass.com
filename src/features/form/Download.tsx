@@ -132,7 +132,7 @@ export default function Download({ data }: DownloadProps) {
   function go() {
     if (!downloaded) return;
 
-    navigate("/mail");
+    navigate("../mail");
   }
 
   if (!pdfResultUrl) return <>Loading...</>;

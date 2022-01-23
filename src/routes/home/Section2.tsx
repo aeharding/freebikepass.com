@@ -81,20 +81,16 @@ export default function Section2() {
               States for people aged 1–54<sup>1</sup>
             </li>
             <li>
-              The average American spends almost 20% of their income on driving
+              The average American spends about 15% of their income on driving
               <sup>2</sup>
             </li>
           </ul>
         </Description>
 
-        <Link to="/agree">
+        <Link to="/order">
           <Button dark>Order Free Bike Pass</Button>
         </Link>
       </StyledContainer>
     </StyledSection2>
   );
 }
-
-// https://www.cdc.gov/injury/features/global-road-safety/index.html"
-
-// https://www.fool.com/the-ascent/credit-cards/articles/average-american-spends-way-more-transportation-youd-guess/

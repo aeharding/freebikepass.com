@@ -27,7 +27,13 @@ const Description = styled.div`
 
   span {
     background: #00ff37;
+    background: color(display-p3 0 1 0);
     filter: drop-shadow(0.5rem 0 0 #00ff37) drop-shadow(-0.5rem 0 0 #00ff37);
+
+    @media (color-gamut: p3) {
+      filter: none;
+    }
+
     box-decoration-break: clone;
   }
 `;
@@ -43,7 +49,7 @@ export default function Section3() {
           </span>
         </Description>
 
-        <Link to="/agree">
+        <Link to="/order">
           <Button dark>Riding is climate action. Order Free Bike Pass</Button>
         </Link>
       </Container>

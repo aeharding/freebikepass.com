@@ -25,6 +25,7 @@ const StyledButton = styled.button<ButtonProps>`
   &:disabled {
     background: rgba(0, 0, 0, 0.2);
     pointer-events: none;
+    color: rgba(255, 255, 255, 0.5);
   }
 
   ${({ fullWidth }) =>

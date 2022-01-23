@@ -46,6 +46,13 @@ const globalStyles = css`
   a {
     color: inherit;
   }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    background-clip: content-box !important;
+  }
 `;
 
 ReactDOM.render(

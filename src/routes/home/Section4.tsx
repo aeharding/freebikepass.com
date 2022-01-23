@@ -10,10 +10,21 @@ const Container = styled.div`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 2rem;
 
+  max-width: 1600px;
+
   margin: 0 auto;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  @media (max-width: 1100px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export default function Section4() {

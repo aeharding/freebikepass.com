@@ -12,6 +12,7 @@ const Blockquote = styled.blockquote`
 
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   border: 1px solid #555;
   border-radius: 1rem;

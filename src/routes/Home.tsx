@@ -6,6 +6,7 @@ import Section from "../shared/Section";
 import Section2 from "./home/Section2";
 import Section3 from "./home/Section3";
 import Section4 from "./home/Section4";
+import Citations from "./home/Citations";
 
 const StyledHome = styled.div`
   margin-bottom: -2rem;
@@ -99,12 +100,13 @@ export default function Home() {
                 certain trails outside the City of Madison.
               </p>
               <p>
-                Order your <strong>FREE</strong> annual state trail pass now —
-                so you have it when you need it.
+                If you ride primarily for transportation purposes, you qualify
+                for a <strong>FREE</strong> annual state trail pass. It only
+                take a few minutes to order!
               </p>
             </Description>
 
-            <Link to="/agree">
+            <Link to="/order">
               <Button>Order Free Bike Pass</Button>
             </Link>
             <LearnMoreLink to="/faq">Learn More</LearnMoreLink>
@@ -119,6 +121,8 @@ export default function Home() {
       <Section4 />
 
       <Section3 />
+
+      <Citations />
     </StyledHome>
   );
 }
