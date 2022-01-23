@@ -11,7 +11,7 @@ const data = [
   },
   {
     q: "Why are they so specific about the Capital City Trail in their wording on the form? Don't people use other trails (like Military Ridge) for necessary activities?",
-    a: 'The wording in the form is terrible. If you use state trails primarily for "work, school, shopping or other necessary activities," you qualify.',
+    a: 'The wording in the form is terrible. If you use state trails primarily for "work, school, shopping or other necessary activities," you probably qualify.',
   },
   {
     q: "How do they verify I use the path primarily for transportation?",
@@ -46,8 +46,8 @@ const data = [
     q: "Does this site collect any information?",
     a: (
       <>
-        No. Nothing is even transmitted to the server. I see nothing. But if
-        privacy is a concern, you can fill out + submit the form yourself by{" "}
+        No. Nothing is even transmitted to the server. I see nothing. But if you
+        don't trust me, you can fill out + submit the form yourself by{" "}
         <a
           href="https://parks-lwrd.countyofdane.com/park/Capital-City-State-Trail"
           target="_blank"
@@ -100,5 +100,10 @@ const data = [
 ];
 
 export default function Faq() {
-  return <Qs data={data} />;
+  return (
+    <>
+      <h3>Frequently Asked Questions</h3>
+      <Qs data={data} />
+    </>
+  );
 }

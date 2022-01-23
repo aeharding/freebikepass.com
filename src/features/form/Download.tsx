@@ -142,8 +142,8 @@ export default function Download({ data }: DownloadProps) {
       <h3>Step 3: Download</h3>
 
       <p>
-        Click the button below to download your form. In the next step, you will
-        be attaching it to an email to send.
+        Click the button below to download your completed form. In the next
+        step, you will be attaching it to an email to send.
       </p>
 
       <DownloadLinkContainer>
