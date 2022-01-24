@@ -7,12 +7,15 @@ import { form } from "../features/form/formSlice";
 
 const Danger = styled.div`
   margin: 1em auto;
-  width: 300px;
-  text-align: center;
+  max-width: 300px;
+  width: 100%;
   padding: 1em;
-  background: red;
-  font-weight: bold;
+  box-sizing: border-box;
+
   border-radius: 2em;
+  text-align: center;
+  font-weight: bold;
+  background: red;
 `;
 
 export default function Mail() {
