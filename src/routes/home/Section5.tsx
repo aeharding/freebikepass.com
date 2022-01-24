@@ -1,5 +1,9 @@
 import styled from "@emotion/styled/macro";
-import { faAngleRight, faCar, faTags } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAngleRight,
+  faTaxi,
+  faShoppingCart,
+} from "@fortawesome/pro-light-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Section from "../../shared/Section";
 import { ReactComponent as BikeFamily } from "./bikeFamily.svg";
@@ -94,7 +98,7 @@ const BenefitTitle = styled.h4`
   align-items: center;
 
   svg {
-    font-size: 1.3em;
+    font-size: 1.4em;
     margin-right: 1rem;
     margin-left: 0.5rem;
   }
@@ -113,10 +117,7 @@ const BenefitGo = styled.div`
   align-items: center;
   grid-gap: 1rem;
 
-  color: white;
-
   svg {
-    color: rgba(255, 255, 255, 0.5);
     font-size: 2rem;
   }
 `;
@@ -137,7 +138,7 @@ export default function Section5() {
             rel="noopener noreferrer"
           >
             <BenefitTitle>
-              <FontAwesomeIcon icon={faCar} /> Emergency Ride Home
+              <FontAwesomeIcon icon={faTaxi} /> Emergency Ride Home
             </BenefitTitle>
             <BenefitDescription>
               Do you worry about your bike breaking down during your ride, or
@@ -156,7 +157,7 @@ export default function Section5() {
             rel="noopener noreferrer"
           >
             <BenefitTitle>
-              <FontAwesomeIcon icon={faTags} /> Bicycle Benefits Program
+              <FontAwesomeIcon icon={faShoppingCart} /> Bicycle Benefits Program
             </BenefitTitle>
 
             <BenefitDescription>
