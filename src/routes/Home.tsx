@@ -141,7 +141,7 @@ export default function Home() {
 
       <FooterSection>
         <FooterSectionContainer>
-          <p>Convinced?</p>
+          <p>Ready?</p>
           <Link to="/order">
             <Button>Order Free Bike Pass</Button>
           </Link>
