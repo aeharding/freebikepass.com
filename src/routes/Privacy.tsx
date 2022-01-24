@@ -1,3 +1,5 @@
+import { ReactComponent as Email } from "./email.svg";
+
 export default function Privacy() {
   return (
     <>
@@ -29,6 +31,12 @@ export default function Privacy() {
 
       <p>
         <em>Last Updated: January 21st, 2022.</em>
+      </p>
+
+      <h3>Contact</h3>
+
+      <p>
+        <Email />
       </p>
     </>
   );

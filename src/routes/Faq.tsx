@@ -1,4 +1,5 @@
 import Qs from "../faq/Qs";
+import { ReactComponent as Email } from "./email.svg";
 
 const data = [
   {
@@ -123,6 +124,10 @@ const data = [
   {
     q: "Isn't charging people to ride bikes, and then building a whole form to get a free pass, of which you need an address to get the pass sent to you, and a computer to fill out, the time to do it, a printer/scanner, and the knowhow to do it, an example of systemic inequity and exclusion?",
     a: "Why yes, yes it is. But I don't make the rules.",
+  },
+  {
+    q: "How do I contact you?",
+    a: <Email />,
   },
 ];
 
