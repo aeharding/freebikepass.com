@@ -61,7 +61,7 @@ const data = [
         >
           Dane County Reservation and Permit system
         </a>{" "}
-        to buy an annual pass. You can also buy a monthly pass for $5 at self
+        to buy an annual pass. You can also buy a daily pass for $5 at self
         service stations.
       </>
     ),
