@@ -74,23 +74,19 @@ export interface ITweet {
   user: {
     name: string;
     handle: string;
-    avatar: string;
   };
+  url: string;
   date: string;
 }
 
 interface TweetProps extends ITweet {}
 
-export default function Tweet({ body, user, date }: TweetProps) {
+export default function Tweet({ body, user, date, url }: TweetProps) {
   return (
-    <Link
-      href={`/twitter-avatars/${user.handle.toLowerCase()}.jpg`}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <Link href={url} target="_blank" rel="noopener noreferrer">
       <Blockquote>
         <User>
-          <Avatar src={user.avatar} />
+          <Avatar src={`/twitter-avatars/${user.handle.toLowerCase()}.jpg`} />
           <UserInfo>
             <UserText>{user.name}</UserText>
             <Handle>
