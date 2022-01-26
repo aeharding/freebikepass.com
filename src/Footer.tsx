@@ -45,12 +45,16 @@ const BLM = styled.div`
 const StyledChild = styled(Child)`
   width: 100px;
   filter: invert(1);
-  opacity: 0.07;
+  opacity: 0.1;
 
   position: absolute;
   bottom: 0;
-  right: 50px;
-  transform: rotate(-2.5deg) translateY(3px);
+  left: 50%;
+  transform: rotate(-2.5deg) translate(550px, 27px);
+
+  @media (max-width: 1350px) {
+    display: none;
+  }
 `;
 
 export default function Footer() {

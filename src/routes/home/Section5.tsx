@@ -33,6 +33,13 @@ const StyledCargoBike = styled(CargoBike)`
     width: 100%;
   }
 
+  @media (min-width: 2050px) {
+    left: 50%;
+    right: initial;
+    transform: scale(-1, 1) rotate(-0.4deg)
+      translate(calc((100% + 100px) * -1), -2px);
+  }
+
   opacity: 0.2;
 `;
 

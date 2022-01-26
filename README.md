@@ -1,4 +1,4 @@
-# freebikepass.com
+# 💲🚴🎫 [freebikepass.com](https://freebikepass.com)
 
 ## Getting Started
 
