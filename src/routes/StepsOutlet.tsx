@@ -1,5 +1,7 @@
+import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import Wizard from "../features/wizard/Wizard";
+import Loading from "../shared/Loading";
 
 const steps = [
   {
@@ -29,7 +31,9 @@ export default function StepsOutlet() {
     <>
       <Wizard steps={steps} />
 
-      <Outlet />
+      <Suspense fallback={<Loading />}>
+        <Outlet />
+      </Suspense>
     </>
   );
 }

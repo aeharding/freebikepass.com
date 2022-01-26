@@ -6,7 +6,7 @@ import {
 } from "@fortawesome/pro-light-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Section from "../../shared/Section";
-import { ReactComponent as BikeFamily } from "./bikeFamily.svg";
+import { ReactComponent as CargoBike } from "./silhouettes/cargo.svg";
 
 const StyledSection5 = styled.div`
   position: relative;
@@ -19,26 +19,52 @@ const StyledSection5 = styled.div`
   color: black;
 `;
 
-const StyledBikeFamily = styled(BikeFamily)`
+const StyledCargoBike = styled(CargoBike)`
   position: absolute;
 
   bottom: 0;
   right: 0;
 
   width: 60%;
-  max-width: 600px;
+  max-width: 450px;
+  transform: scale(-1, 1) rotate(-0.4deg) translateY(2px);
 
   @media (max-width: 800px) {
     width: 100%;
   }
 
-  transform: rotate(0.5deg) translateY(1%);
   opacity: 0.2;
+`;
+
+const starSize = "600px";
+
+const Stars = styled.div`
+  background: url(/stars.png) repeat;
+  background-size: ${starSize};
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -${starSize};
+
+  width: calc(100% + ${starSize});
+
+  animation: move 40s linear;
+  animation-iteration-count: infinite;
+
+  @keyframes move {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(${starSize});
+    }
+  }
 `;
 
 const Title = styled.h3`
   font-size: 3rem;
   margin: 2rem 0;
+  position: relative;
 
   font-weight: 100;
 
@@ -78,7 +104,6 @@ const Benefit = styled.a`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
   text-decoration: none;
-  backdrop-filter: blur(4px);
 
   transition: transform 100ms ease-out;
 
@@ -125,7 +150,8 @@ const BenefitGo = styled.div`
 export default function Section5() {
   return (
     <StyledSection5>
-      <StyledBikeFamily />
+      <Stars />
+      <StyledCargoBike />
       <Section>
         <Title>
           There's <strong>more</strong> <aside>benefits to #GoByBike</aside>

@@ -70,7 +70,7 @@ export default function Form() {
   });
 
   return (
-    <>
+    <div>
       <Title>Order State Trail Pass</Title>
 
       <P>
@@ -198,6 +198,6 @@ export default function Form() {
           </Button>
         </Lines>
       </form>
-    </>
+    </div>
   );
 }

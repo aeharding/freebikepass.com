@@ -3,8 +3,12 @@ import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Section from "./shared/Section";
 import { ReactComponent as LGBT } from "./lgbt.svg";
+import { ReactComponent as Child } from "./routes/home/silhouettes/child.svg";
 
 const StyledFooter = styled.div`
+  position: relative;
+  overflow: hidden;
+
   margin-top: 2rem;
   padding: 3em 1rem;
 
@@ -38,6 +42,17 @@ const BLM = styled.div`
   font-weight: bold;
 `;
 
+const StyledChild = styled(Child)`
+  width: 100px;
+  filter: invert(1);
+  opacity: 0.07;
+
+  position: absolute;
+  bottom: 0;
+  right: 50px;
+  transform: rotate(-2.5deg) translateY(3px);
+`;
+
 export default function Footer() {
   return (
     <>
@@ -54,6 +69,8 @@ export default function Footer() {
             </div>
           </Content>
         </Section>
+
+        <StyledChild />
       </StyledFooter>
     </>
   );

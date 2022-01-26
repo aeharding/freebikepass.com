@@ -3,6 +3,11 @@ import styled from "@emotion/styled/macro";
 export const maxBodyWidth = "975px";
 
 export default styled.div`
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
   width: 100%;
   max-width: ${maxBodyWidth};
   margin: 0 auto;

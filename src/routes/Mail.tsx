@@ -24,7 +24,7 @@ export default function Mail() {
   if (!formData) return <Navigate to="/order/info" replace />;
 
   return (
-    <>
+    <div>
       <h3>Step 4: Send your form</h3>
 
       <p>
@@ -48,6 +48,6 @@ export default function Mail() {
       <Link to="../done">
         <Button fullWidth>I've sent the email</Button>
       </Link>
-    </>
+    </div>
   );
 }

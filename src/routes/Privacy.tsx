@@ -2,7 +2,7 @@ import { ReactComponent as Email } from "./email.svg";
 
 export default function Privacy() {
   return (
-    <>
+    <div>
       <h3>Privacy Policy</h3>
 
       <p>
@@ -38,6 +38,6 @@ export default function Privacy() {
       <p>
         <Email />
       </p>
-    </>
+    </div>
   );
 }

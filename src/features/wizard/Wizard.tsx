@@ -6,7 +6,7 @@ import Step from "./Step";
 const StyledWizard = styled.div`
   display: flex;
 
-  margin: 2rem 0;
+  margin: 2rem 0 1rem;
 `;
 
 export interface IStep {

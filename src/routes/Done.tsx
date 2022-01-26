@@ -7,6 +7,13 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import Button from "../shared/Button";
+import { ReactComponent as Boy } from "../routes/home/silhouettes/boy.svg";
+import { ReactComponent as Girl } from "../routes/home/silhouettes/girl.svg";
+import { css } from "@emotion/react/macro";
+
+const Description = styled.p`
+  margin-bottom: 3rem;
+`;
 
 const ShareButton = styled(Button)`
   svg {
@@ -23,6 +30,35 @@ const Center = styled.div`
   }
 `;
 
+const SilhouetteContainer = styled.div`
+  height: 200px;
+  margin-top: auto;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  grid-gap: 2rem;
+
+  transform: translateY(2rem);
+`;
+
+const sharedSilhouetteStyles = css`
+  flex: 1 0 0;
+
+  max-width: 200px;
+
+  opacity: 0.15;
+  filter: invert(1);
+`;
+
+const StyledBoy = styled(Boy)`
+  ${sharedSilhouetteStyles}
+`;
+
+const StyledGirl = styled(Girl)`
+  ${sharedSilhouetteStyles}
+`;
+
 export default function Done() {
   function share() {
     navigator.share({ url: "https://freebikepass.com" });
@@ -30,12 +66,14 @@ export default function Done() {
 
   return (
     <>
-      <h3>You're all set! 😁</h3>
+      <div>
+        <h3>You're all set! 😁</h3>
 
-      <p>
-        Happy riding! Passes are usually processed and delivered within a week
-        or two. If you liked this site, please share!
-      </p>
+        <Description>
+          Happy riding! Passes are usually processed and delivered within a week
+          or two. If you liked this site, please share!
+        </Description>
+      </div>
 
       {"share" in navigator ? (
         <>
@@ -57,6 +95,11 @@ export default function Done() {
           <ShareButton fullWidth>Done</ShareButton>
         </Link>
       )}
+
+      <SilhouetteContainer>
+        <StyledBoy />
+        <StyledGirl />
+      </SilhouetteContainer>
     </>
   );
 }

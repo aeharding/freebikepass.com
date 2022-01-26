@@ -34,7 +34,7 @@ const Blockquote = styled.blockquote`
 
 const CheckboxLabel = styled(FormControlLabel)`
   && {
-    margin: 0 1em;
+    margin: 0 1rem;
   }
 `;
 
@@ -48,7 +48,7 @@ export default function Agree() {
   }
 
   return (
-    <>
+    <div>
       <p>
         In order to get a bike trail pass, you must acknowledge the following.
       </p>
@@ -112,6 +112,6 @@ export default function Agree() {
       <Button disabled={!hasAgreed} onClick={submit} fullWidth>
         Continue
       </Button>
-    </>
+    </div>
   );
 }

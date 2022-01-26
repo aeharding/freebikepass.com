@@ -1,5 +1,3 @@
-import { PDFDocument, rgb } from "pdf-lib";
-import fontkit from "@pdf-lib/fontkit";
 import { useEffect, useState } from "react";
 import * as api from "../../services/api";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,6 +7,7 @@ import Button from "../../shared/Button";
 import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../hooks";
 import { form } from "./formSlice";
+import Loading from "../../shared/Loading";
 
 const DownloadLinkContainer = styled.div`
   display: flex;
@@ -73,19 +72,22 @@ export default function Download() {
   async function load() {
     if (!formData) throw new Error("formData not defined");
 
-    // This should be a Uint8Array or ArrayBuffer
-    // This data can be obtained in a number of different ways
-    // If your running in a Node environment, you could use fs.readFile()
-    // In the browser, you could make a fetch() call and use res.arrayBuffer()
-    const existingPdfBytes = await api.getForm();
+    // Load everything in parallel
+    const [
+      existingPdfBytes,
+      { PDFDocument, rgb },
+      { default: fontkit },
+      fontBytes,
+    ] = await Promise.all([
+      api.getForm(),
+      import("pdf-lib"),
+      import("@pdf-lib/fontkit"),
+      fetch("/CedarvilleCursive-Regular.ttf").then((res) => res.arrayBuffer()),
+    ]);
 
     // Load a PDFDocument from the existing PDF bytes
     const pdfDoc = await PDFDocument.load(existingPdfBytes);
 
-    const fontUrl = "/CedarvilleCursive-Regular.ttf";
-    const fontBytes = await fetch(fontUrl).then((res) => res.arrayBuffer());
-
-    // Embed the Ubuntu font
     pdfDoc.registerFontkit(fontkit);
     const cedarvilleFont = await pdfDoc.embedFont(fontBytes);
 
@@ -136,12 +138,12 @@ export default function Download() {
     navigate("../mail");
   }
 
-  if (!pdfResultUrl) return <>Loading...</>;
+  if (!pdfResultUrl) return <Loading />;
 
   if (!formData) throw new Error("formData not defined");
 
   return (
-    <>
+    <div>
       <h3>Step 3: Download</h3>
 
       <p>
@@ -170,6 +172,6 @@ export default function Download() {
       <Button fullWidth disabled={!downloaded} onClick={go}>
         Continue
       </Button>
-    </>
+    </div>
   );
 }

@@ -9,7 +9,6 @@ const tweets: ITweet[] = [
       avatar:
         "https://pbs.twimg.com/profile_images/1403690412536107008/y5ocVyXs_x96.jpg",
     },
-    url: "https://twitter.com/bikejc/status/1474255744832843799",
     date: "5:44 AM · Dec 23, 2021",
   },
   {
@@ -20,7 +19,6 @@ const tweets: ITweet[] = [
       avatar:
         "https://pbs.twimg.com/profile_images/1121207213048025088/rtaoECXI_x96.jpg",
     },
-    url: "https://twitter.com/walkablecityboy/status/1371141945041457156",
     date: "11:51 AM · Mar 14, 2021",
   },
   {
@@ -31,7 +29,6 @@ const tweets: ITweet[] = [
       avatar:
         "https://pbs.twimg.com/profile_images/1002452918472093696/jcddvEVe_x96.jpg",
     },
-    url: "https://twitter.com/tobyhardtospell/status/1476429643561402369",
     date: "11:47 PM · Dec 29, 2021",
   },
   {
@@ -42,7 +39,6 @@ const tweets: ITweet[] = [
       avatar:
         "https://pbs.twimg.com/profile_images/1461772339289464836/H-Rg558v_x96.jpg",
     },
-    url: "https://twitter.com/adamkotsko/status/1402998838554628103",
     date: "9:39 AM · Jun 10, 2021",
   },
 ];

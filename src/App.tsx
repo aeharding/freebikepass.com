@@ -41,6 +41,11 @@ const AppContents = styled.div`
 
 const Main = styled.main`
   flex: 1;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
 `;
 
 function SectionOutlet() {

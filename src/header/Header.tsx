@@ -4,6 +4,10 @@ import Nav from "./Nav";
 import { Link } from "react-router-dom";
 import Section, { maxBodyWidth } from "../shared/Section";
 
+const StyledSection = styled(Section)`
+  flex: 0;
+`;
+
 const StyledLink = styled(Link)`
   text-decoration: none;
 
@@ -41,7 +45,7 @@ const HeaderContents = styled.header`
  */
 export default function Header() {
   return (
-    <Section>
+    <StyledSection>
       <HeaderContents>
         <StyledLink to="/">
           <Logo />
@@ -49,6 +53,6 @@ export default function Header() {
 
         <Nav />
       </HeaderContents>
-    </Section>
+    </StyledSection>
   );
 }
