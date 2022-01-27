@@ -12,19 +12,12 @@ const StyledSection5 = styled.div`
   position: relative;
 
   display: flex;
+  flex-direction: column;
   padding: 0 0 2.25rem;
   overflow: hidden;
 
   background: linear-gradient(to right, #a5fecb, #20bdff, #5433ff);
   color: black;
-
-  @media (max-width: 800px) {
-    padding-bottom: 21rem;
-  }
-
-  @media (max-width: 450px) {
-    padding-bottom: 75vw;
-  }
 `;
 
 const StyledCargoBike = styled(CargoBike)`
@@ -38,8 +31,12 @@ const StyledCargoBike = styled(CargoBike)`
   width: 100%;
 
   @media (max-width: 800px) {
-    right: 50%;
-    transform: scale(-1, 1) rotate(-0.4deg) translate(-50%, 2px);
+    position: initial;
+    transform: scale(-1, 1) rotate(-0.4deg) translate(0, calc(2.25rem + 2px));
+    align-self: center;
+    width: 65%;
+    order: 100;
+    max-width: 300px;
   }
 
   @media (min-width: 2050px) {
