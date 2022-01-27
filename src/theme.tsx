@@ -1,8 +1,5 @@
 import { css } from "@emotion/react/macro";
-import {
-  createMuiTheme as _createMuiTheme,
-  unstable_createMuiStrictModeTheme,
-} from "@material-ui/core";
+import { createTheme } from "@material-ui/core/styles";
 
 export enum Themes {
   Dark,
@@ -26,21 +23,7 @@ export function writeVariables(theme: Themes) {
 }
 
 export function createMuiTheme() {
-  // REMOVE unstable_createMuiStrictModeTheme
-  // WHEN USING MATERIAL UI v5.0
-  //
-  // Fixes harmless (albeit annoying) React strict mode error:
-  // Warning: findDOMNode is deprecated in StrictMode.
-  //
-  // More:
-  //  1. https://github.com/mui-org/material-ui/issues/13394
-  //  2. https://github.com/mui-org/material-ui/issues/13394#issuecomment-815452717
-  const create =
-    process.env.NODE_ENV === "production"
-      ? _createMuiTheme
-      : unstable_createMuiStrictModeTheme;
-
-  return create({
+  return createTheme({
     palette: {
       type: "dark",
       primary: { main: "#fff" },

@@ -12,11 +12,19 @@ const StyledSection5 = styled.div`
   position: relative;
 
   display: flex;
-  padding: 0 0 2rem;
+  padding: 0 0 2.25rem;
   overflow: hidden;
 
   background: linear-gradient(to right, #a5fecb, #20bdff, #5433ff);
   color: black;
+
+  @media (max-width: 800px) {
+    padding-bottom: 21rem;
+  }
+
+  @media (max-width: 450px) {
+    padding-bottom: 75vw;
+  }
 `;
 
 const StyledCargoBike = styled(CargoBike)`
@@ -25,12 +33,13 @@ const StyledCargoBike = styled(CargoBike)`
   bottom: 0;
   right: 0;
 
-  width: 60%;
   max-width: 450px;
   transform: scale(-1, 1) rotate(-0.4deg) translateY(2px);
+  width: 100%;
 
   @media (max-width: 800px) {
-    width: 100%;
+    right: 50%;
+    transform: scale(-1, 1) rotate(-0.4deg) translate(-50%, 2px);
   }
 
   @media (min-width: 2050px) {
@@ -41,6 +50,18 @@ const StyledCargoBike = styled(CargoBike)`
   }
 
   opacity: 0.2;
+`;
+
+const Grass = styled.div`
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+
+  width: 100%;
+  height: 40px;
+
+  background: url(/grass.png);
+  background-size: contain;
 `;
 
 const starSize = "600px";
@@ -159,6 +180,7 @@ export default function Section5() {
     <StyledSection5>
       <Stars />
       <StyledCargoBike />
+      <Grass />
       <Section>
         <Title>
           There's <strong>more</strong> <aside>benefits to #GoByBike</aside>
