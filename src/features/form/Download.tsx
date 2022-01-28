@@ -77,21 +77,31 @@ export default function Download() {
       existingPdfBytes,
       { PDFDocument, rgb },
       { default: fontkit },
-      fontBytes,
+      cedarvilleFontBytes,
+      latoFontBytes,
     ] = await Promise.all([
       api.getForm(),
       import("pdf-lib"),
       import("@pdf-lib/fontkit"),
       fetch("/CedarvilleCursive-Regular.ttf").then((res) => res.arrayBuffer()),
+      fetch("/Lato-Regular.ttf").then((res) => res.arrayBuffer()),
     ]);
 
     // Load a PDFDocument from the existing PDF bytes
     const pdfDoc = await PDFDocument.load(existingPdfBytes);
 
     pdfDoc.registerFontkit(fontkit);
-    const cedarvilleFont = await pdfDoc.embedFont(fontBytes);
+    const cedarvilleFont = await pdfDoc.embedFont(cedarvilleFontBytes);
+    const latoFont = await pdfDoc.embedFont(latoFontBytes);
 
     const form = pdfDoc.getForm();
+
+    /**
+     * Below is workaround for https://github.com/Hopding/pdf-lib/issues/1152
+     */
+    const rawUpdateFieldAppearances = form.updateFieldAppearances.bind(form);
+    form.updateFieldAppearances = () => rawUpdateFieldAppearances(latoFont);
+    // (End workaround)
 
     Object.entries(staticFields).forEach(([fieldName, value]) => {
       const field = form.getTextField(fieldName);
