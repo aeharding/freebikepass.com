@@ -46,5 +46,12 @@ export const { agreeChange, dataReceived, clear } = formReducer.actions;
 
 export const form = (state: RootState) => state.form.data;
 export const agreed = (state: RootState) => state.form.agreed;
+export const pdf = ({ form: { data } }: RootState) =>
+  data
+    ? {
+        ...data,
+        cityStateZip: `${data.city}, ${data.state} ${data.zip}`,
+      }
+    : undefined;
 
 export default formReducer.reducer;

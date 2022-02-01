@@ -1,4 +1,6 @@
 import styled from "@emotion/styled/macro";
+import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Dialog } from "@material-ui/core";
 import mailToLink from "mailto-link";
 import { useState } from "react";
@@ -19,13 +21,20 @@ const StyledDialog = styled(Dialog)`
   backdrop-filter: blur(5px);
 
   .MuiPaper-root {
-    background: #001e5f;
+    max-width: 350px;
     padding: 1rem;
+    border: 1rem red solid;
+    background: white;
+    color: black;
 
     h2 {
       margin: 0;
     }
   }
+`;
+
+const WarningIcon = styled(FontAwesomeIcon)`
+  color: red;
 `;
 
 interface MailProps {
@@ -53,11 +62,14 @@ export default function Mail({ to, subject, body }: MailProps) {
         {body}
       </StyledMail>
       <StyledDialog onClose={handleClose} open={open}>
-        <h2>Reminder: Manually attach the form to your email!</h2>
+        <h2>
+          <WarningIcon icon={faExclamationCircle} /> Reminder: Form must be
+          manually attached!
+        </h2>
 
         <p>
-          <strong>You must attach the form manually</strong> that you just
-          downloaded. Do you understand?
+          <strong>You must attach the form</strong> you just downloaded{" "}
+          <strong>manually</strong> to the email you send. Do you understand?
         </p>
 
         <a href={link} onClick={handleClose}>

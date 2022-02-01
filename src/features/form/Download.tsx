@@ -6,7 +6,7 @@ import styled from "@emotion/styled/macro";
 import Button from "../../shared/Button";
 import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../hooks";
-import { form } from "./formSlice";
+import { pdf } from "./formSlice";
 import Loading from "../../shared/Loading";
 
 const DownloadLinkContainer = styled.div`
@@ -42,7 +42,7 @@ export const staticFields = {
   To_3: "Work, school, shopping or other necessary activities",
 };
 
-const labelMap: Record<keyof FormPayload, string> = {
+const labelMap: Record<keyof PdfPayload, string> = {
   name: "NAME",
   phone: "TELEPHONE",
   street: "STREET ADDRESS",
@@ -54,13 +54,23 @@ export interface FormPayload {
   name: string;
   phone: string;
   street: string;
+  city: string;
+  state: string;
+  zip: string;
+  email: string;
+}
+
+export interface PdfPayload {
+  name: string;
+  phone: string;
+  street: string;
   cityStateZip: string;
   email: string;
 }
 
 export default function Download() {
   const navigate = useNavigate();
-  const formData = useAppSelector(form);
+  const formData = useAppSelector(pdf);
   const [pdfResultUrl, setPdfResultUrl] = useState<string | undefined>();
   const [downloaded, setDownloaded] = useState(false);
 
