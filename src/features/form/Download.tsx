@@ -177,6 +177,8 @@ export default function Download() {
           download={`BikeTrailApp-${new Date().getFullYear()}-${formData.name
             .slice(0, 25)
             .replaceAll(" ", "")}.pdf`}
+          type="application/octet-stream"
+          target="_blank"
           onClick={() => setDownloaded(true)}
         >
           <div>
