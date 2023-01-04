@@ -1,6 +1,8 @@
 import { Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
+import FacebookInAppBrowserWarning from "../FacebookInAppBrowserWarning";
 import Wizard from "../features/wizard/Wizard";
+import { isFacebookApp } from "../helpers/ua";
 import Loading from "../shared/Loading";
 import Agree from "./Agree";
 import Done from "./Done";
@@ -43,18 +45,24 @@ export default function Steps() {
 }
 
 function StepsWithWizard() {
+  const fb = isFacebookApp();
+
   return (
     <>
       <Wizard steps={steps} />
 
-      <Routes>
-        <Route path="" element={<Navigate replace to="agree" />} />
+      {fb ? (
+        <FacebookInAppBrowserWarning />
+      ) : (
+        <Routes>
+          <Route path="" element={<Navigate replace to="agree" />} />
 
-        <Route path="agree" element={<Agree />} />
-        <Route path="info" element={<Info />} />
-        <Route path="download" element={<DownloadRoute />} />
-        <Route path="mail" element={<Mail />} />
-      </Routes>
+          <Route path="agree" element={<Agree />} />
+          <Route path="info" element={<Info />} />
+          <Route path="download" element={<DownloadRoute />} />
+          <Route path="mail" element={<Mail />} />
+        </Routes>
+      )}
     </>
   );
 }

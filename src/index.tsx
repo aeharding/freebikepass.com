@@ -55,6 +55,16 @@ const globalStyles = css`
   input:-webkit-autofill:active {
     background-clip: content-box !important;
   }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
 `;
 
 ReactDOM.render(

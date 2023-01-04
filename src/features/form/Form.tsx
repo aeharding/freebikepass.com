@@ -176,6 +176,7 @@ export default function Form() {
                 label="ZIP Code"
                 autoComplete="postal-code"
                 name="zip"
+                type="number"
                 value={formik.values.zip}
                 onChange={formik.handleChange}
                 error={formik.touched.zip && Boolean(formik.errors.zip)}
