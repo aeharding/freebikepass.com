@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.js": "/static/js/main.e81fad98.js",
+    "static/js/351.aeae4761.chunk.js": "/static/js/351.aeae4761.chunk.js",
+    "static/js/736.905236ef.chunk.js": "/static/js/736.905236ef.chunk.js",
+    "static/js/0.a8105714.chunk.js": "/static/js/0.a8105714.chunk.js",
+    "static/js/43.9357ef3b.chunk.js": "/static/js/43.9357ef3b.chunk.js",
+    "static/js/244.34750e89.chunk.js": "/static/js/244.34750e89.chunk.js",
+    "static/media/girl.svg": "/static/media/girl.be9ae7114fc2aefbb6e1e474ab34c030.svg",
+    "static/media/cargo.svg": "/static/media/cargo.d340060a1a1485e29921bad1597785e6.svg",
+    "static/media/lgbt.svg": "/static/media/lgbt.58063a73c5fb55adaa8fefabb622166f.svg",
+    "static/media/child.svg": "/static/media/child.80b7521513edb6cc16cb70a7161e0e1e.svg",
+    "static/media/email.svg": "/static/media/email.d4b8c5a57efbc7f4165d0c23f13c141b.svg",
+    "static/media/boy.svg": "/static/media/boy.4ca68e7a6eeb2458d921ef6abfd0ae41.svg",
+    "static/media/bike.svg": "/static/media/bike.2e7c31ffdab1063967e07bdeb1a9c34f.svg",
+    "index.html": "/index.html",
+    "static/media/flag.svg": "/static/media/flag.94f024dc4c057d68564aa8c13a6b93d2.svg",
+    "main.e81fad98.js.map": "/static/js/main.e81fad98.js.map",
+    "351.aeae4761.chunk.js.map": "/static/js/351.aeae4761.chunk.js.map",
+    "736.905236ef.chunk.js.map": "/static/js/736.905236ef.chunk.js.map",
+    "0.a8105714.chunk.js.map": "/static/js/0.a8105714.chunk.js.map",
+    "43.9357ef3b.chunk.js.map": "/static/js/43.9357ef3b.chunk.js.map",
+    "244.34750e89.chunk.js.map": "/static/js/244.34750e89.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.e81fad98.js"
+  ]
+}
